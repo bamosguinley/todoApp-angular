@@ -18,8 +18,7 @@ export class TodoCrudService implements Crud {
         id: this.id++,
         text: todoText,
         isDone: false,
-        isEditable: false,
-        
+        isEditable: false, 
       });
     }
     this.nombre = this.todos.length;

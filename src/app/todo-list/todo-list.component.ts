@@ -25,15 +25,21 @@ export class TodoListComponent {
   updateTodo(todo: Todo) {
     this.crudService.updateTodo(todo);
   }
-  showDone() {
+/**
+ * 
+ * @returns 
+ */
+  showDone():number {
     this.todos = this.crudService.getTodos().filter((t) => t.isDone === true);
-   return this.doneNomber = this.todos.length;
+    return this.todos.length;
   }
-  showNotDone() {
+
+  showNotDone():number{
     this.todos = this.crudService.getTodos().filter((t) => t.isDone !== true);
    return this.unDoneNumber = this.todos.length;
   }
-  showAll() {
+
+  showAll():number {
     this.todos = this.crudService.getTodos();
     return this.nombre = this.todos.length;
   }
