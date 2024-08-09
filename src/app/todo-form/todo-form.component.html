@@ -15,7 +15,7 @@
       <input
         type="submit"
         class="form-control btn btn-primary mb-3"
-        *ngIf="todoText.status=='VALID'"
+        [ngClass]="todoText.status=='INVALID'?'disabled':''"
         value="Enregistrer"
       />
     </div>
