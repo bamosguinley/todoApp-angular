@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

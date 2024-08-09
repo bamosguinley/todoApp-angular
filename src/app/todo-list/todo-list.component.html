@@ -2,18 +2,15 @@
   <thead>
     <tr>
       <th scope="col">Titre</th>
-      <th scope="col">Auteur</th>
       <th scope="col">Statut</th>
       <th scope="col">Options</th>
     </tr>
   </thead>
   <tbody>
-    <tr >
+    <tr *ngFor="let todo of todos">
       <td>
-        <input class="form-check-input mx-2"  type="checkbox" /><span></span>
+        <input class="form-check-input mx-2"  type="checkbox" /><span>{{todo.text}}</span>
       </td>
-    
-      <td></td>
       <td>Terminé</td>
       <td>
         <button  class="btn btn-primary mx-2">Update</button
