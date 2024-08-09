@@ -15,7 +15,7 @@ export class TodoFormComponent {
  
   onCreate() {
     this.crudService.onCreate(this.todoText.value || "");
-    console.log(this.todoText.value);
-    
+    // console.log(this.todoText.value);
+    this.todoText.setValue('');
   }
 }

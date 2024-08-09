@@ -15,6 +15,7 @@
       <input
         type="submit"
         class="form-control btn btn-primary mb-3"
+        *ngIf="todoText.status=='VALID'"
         value="Enregistrer"
       />
     </div>

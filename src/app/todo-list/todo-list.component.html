@@ -9,12 +9,32 @@
   <tbody>
     <tr *ngFor="let todo of todos">
       <td>
-        <input class="form-check-input mx-2"  type="checkbox" /><span>{{todo.text}}</span>
+        <input
+          class="form-check-input mx-2"
+          [(ngModel)]="todo.isDone"
+          type="checkbox"
+        /><span
+          *ngIf="!todo.isEditable"
+          [ngClass]="todo.isDone ? 'done' : ''"
+          >{{ todo.text }}</span
+        >
+        <input
+          type="text"
+          class=""
+          [(ngModel)]="todo.text"
+          *ngIf="todo.isEditable"
+          (keydown.enter)="updateTodo(todo)"
+        />
       </td>
-      <td>Terminé</td>
+      <td>{{ todo.isDone ? "Términé" : "En cours" }}</td>
       <td>
-        <button  class="btn btn-primary mx-2">Update</button
-        ><button class="btn btn-danger">
+        <button
+          class="btn btn-primary mx-2"
+          *ngIf="!todo.isDone || todo.isEditable"
+          (click)="updateTodo(todo)"
+        >
+          Update</button
+        ><button class="btn btn-danger" (click)="deleteTodo(todo)">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -31,4 +51,13 @@
       </td>
     </tr>
   </tbody>
+  <tfoot>
+    <tr>
+        <td>
+            <button class="btn btn-success mx-3" (click)="showDone()">Traité{{ ': '+ doneNomber}}</button>
+            <button class="btn btn-primary mx-3" (click)="showNotDone() ">Non Traité{{': '+unDoneNumber}}</button>
+            <button class="btn" (click)=" showAll()">Total{{': '+nombre}} </button>
+        </td>
+    </tr>
+  </tfoot>
 </table>
