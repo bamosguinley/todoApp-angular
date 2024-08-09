@@ -23,6 +23,7 @@ export class TodoCrudService implements Crud {
       });
     }
     this.nombre = this.todos.length;
+
   }
   getTodos(): Todo[] {
     return this.todos;

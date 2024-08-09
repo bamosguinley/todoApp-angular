@@ -29,11 +29,12 @@
       <td>{{ todo.isDone ? "Términé" : "En cours" }}</td>
       <td>
         <button
-          class="btn btn-primary mx-2"
+          class="btn  mx-2"
+          [ngClass]="!todo.isEditable?'btn-primary':'btn-success'"
           *ngIf="!todo.isDone || todo.isEditable"
           (click)="updateTodo(todo)"
         >
-          Update</button
+          {{todo.isEditable?"Confirmer":"Modifier"}}</button
         ><button class="btn btn-danger" (click)="deleteTodo(todo)">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -53,11 +54,12 @@
   </tbody>
   <tfoot>
     <tr>
-        <td>
-            <button class="btn btn-success mx-3" (click)="showDone()">Traité{{ ': '+ doneNomber}}</button>
-            <button class="btn btn-primary mx-3" (click)="showNotDone() ">Non Traité{{': '+unDoneNumber}}</button>
-            <button class="btn" (click)=" showAll()">Total{{': '+nombre}} </button>
+        <td class="bg-subtle">
+            <button class="btn  btn btn-outline-success mx-3" (click)="showDone()">Traité: {{showDone()}}</button>
+            <button class="btn btn-outline-warning mx-3" (click)="showNotDone()">Non Traité: {{showNotDone()}}</button>
+            <button class="btn  btn-light" (click)=" showAll()">Total: {{showAll()}} </button>
         </td>
+       
     </tr>
   </tfoot>
 </table>

@@ -10,31 +10,31 @@ import { of } from 'rxjs';
 })
 export class TodoListComponent {
   todos: Todo[] = [];
-  nombre: number = 0;
+  nombre!: number;
   doneNomber: number = 0;
   unDoneNumber: number = 0;
-  constructor(private crudService: TodoCrudService) { }
+  constructor(private crudService: TodoCrudService) {}
   ngOnInit() {
     this.todos = this.crudService.getTodos();
     this.nombre = this.crudService.nombre;
   }
   deleteTodo(todo: Todo) {
-    this.crudService.deleteTodo(todo.id)
+    this.crudService.deleteTodo(todo.id);
     this.todos = this.crudService.getTodos();
   }
-  updateTodo(todo:Todo) {
+  updateTodo(todo: Todo) {
     this.crudService.updateTodo(todo);
   }
   showDone() {
-    this.todos = this.crudService.getTodos().filter((t) => t.isDone === true)
-    this.doneNomber = this.todos.length;
+    this.todos = this.crudService.getTodos().filter((t) => t.isDone === true);
+   return this.doneNomber = this.todos.length;
   }
   showNotDone() {
     this.todos = this.crudService.getTodos().filter((t) => t.isDone !== true);
-    this.unDoneNumber = this.todos.length;
+   return this.unDoneNumber = this.todos.length;
   }
   showAll() {
     this.todos = this.crudService.getTodos();
-    this.nombre = this.todos.length;
+    return this.nombre = this.todos.length;
   }
 }
