@@ -6,16 +6,18 @@ import { Todo } from '../interfaces/todo';
   providedIn: 'root'
 })
 export class TodoCrudService implements Crud {
-
+  todos: Todo[] = [
+   {id:1,text:"un texte d'une tâche",isDone:false}
+ ]
   constructor() { }
-onCreate(): void {
+  onCreate(): void {
   
+  }
+  getTodos(): Todo[] {
+    return this.todos;
   }
   updateTodo(todo: Todo): Todo {
     return todo;
-  }
-  getTodos(): Todo[] {
-    return [];
   }
   deleteTodo(todoId: number): void {
     
